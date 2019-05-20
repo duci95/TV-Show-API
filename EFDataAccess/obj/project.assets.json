@@ -943,6 +943,16 @@
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -3603,10 +3613,16 @@
         "system.threading.tasks.4.0.11.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.4",
@@ -3615,23 +3631,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dušan Krsmanović\\.nuget\\packages\\": {},
+    "C:\\Users\\pc\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dušan Krsmanović\\source\\repos\\VezbaApp\\EFDataAccess\\EFDataAccess.csproj",
+      "projectUniqueName": "D:\\VezbaApp\\EFDataAccess\\EFDataAccess.csproj",
       "projectName": "EFDataAccess",
-      "projectPath": "C:\\Users\\Dušan Krsmanović\\source\\repos\\VezbaApp\\EFDataAccess\\EFDataAccess.csproj",
-      "packagesPath": "C:\\Users\\Dušan Krsmanović\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dušan Krsmanović\\source\\repos\\VezbaApp\\EFDataAccess\\obj\\",
+      "projectPath": "D:\\VezbaApp\\EFDataAccess\\EFDataAccess.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "D:\\VezbaApp\\EFDataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dušan Krsmanović\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3643,7 +3659,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\VezbaApp\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\VezbaApp\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
