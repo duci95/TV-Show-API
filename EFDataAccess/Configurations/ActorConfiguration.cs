@@ -11,13 +11,15 @@ namespace EFDataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Actor> builder)
         {
-            builder.HasMany(a => a.ActorShows)
-                    .WithOne(a => a.Actor)
-                    .HasForeignKey(a => a.ActorId)
-                    .OnDelete(DeleteBehavior.SetNull);
-            
+            builder.Property(a => a.ActorFirstName).HasMaxLength(30);
+            builder.Property(a => a.ActorFirstName).IsRequired();
 
+            builder.Property(a => a.ActorLastName).HasMaxLength(40);
+            builder.Property(a => a.ActorLastName).IsRequired();
 
+            builder.Property(a => a.Deleted).HasDefaultValue(false);
+            builder.Property(a => a.CreatedAt).HasDefaultValueSql("GETDATE()");
+                       
         }
     }
 }

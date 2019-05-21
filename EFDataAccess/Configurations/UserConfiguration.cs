@@ -11,27 +11,27 @@ namespace EFDataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.Property(u => u.Username).HasMaxLength(30);
-            builder.Property(u => u.FirstName).HasMaxLength(25);
-            builder.Property(u => u.LastName).HasMaxLength(50);
-
-            builder.HasIndex(u => u.Username).IsUnique();
+            builder.Property(u => u.Email).HasMaxLength(40);
             builder.HasIndex(u => u.Email).IsUnique();
+            builder.Property(u => u.Email).IsRequired();
 
-            builder.HasMany(u => u.Comments)
-                .WithOne(u => u.User)
-                .HasForeignKey(u => u.UserId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.Property(u => u.Email).IsRequired();
 
-            builder.HasMany(u => u.CommentVotes)
-                .WithOne(u => u.User)
-                .HasForeignKey(u => u.UserId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.Property(u => u.Deleted).HasDefaultValue(false);
+            builder.Property(u => u.CreatedAt).HasDefaultValueSql("GETDATE()");
 
-            builder.HasMany(u => u.ShowVotes)
-                .WithOne(u => u.User)
-                .HasForeignKey(u => u.UserId)
-                .OnDelete(DeleteBehavior.SetNull);       
+            builder.Property(u => u.Username).HasMaxLength(20);
+            builder.HasIndex(u => u.Username).IsUnique();
+            builder.Property(u => u.Username).IsRequired();
+
+            builder.Property(u => u.FirstName).HasMaxLength(20);
+            builder.Property(u => u.LastName).HasMaxLength(30);
+
+            builder.Property(u => u.Password).IsRequired();
+            builder.Property(u => u.Token).IsRequired();
+            builder.Property(u => u.FirstName).IsRequired();
+            builder.Property(u => u.LastName).IsRequired();
+
         }
     }
 }

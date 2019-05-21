@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain;
+using EFDataAccess;
+using System;
 
 namespace ConsoleApp
 {
@@ -6,7 +8,13 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var item = new TVShowsContext();
+
+            item.Roles.Add(new Role
+            {
+                RoleName = "admin"
+            });
+            item.SaveChanges();
         }
     }
 }

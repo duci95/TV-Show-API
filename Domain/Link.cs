@@ -10,6 +10,6 @@ namespace Domain
         public string Path { get; set; }
         public int Parent { get; set; }
 
-        public ICollection<Show> Shows { get; set; }
+        //public ICollection<Show> Shows { get; set; }
     }
 }

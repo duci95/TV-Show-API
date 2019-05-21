@@ -11,12 +11,11 @@ namespace EFDataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<City> builder)
         {
-            builder.HasMany(c => c.Users)
-                   .WithOne(c => c.City)
-                   .HasForeignKey(c => c.CityId)
-                   .OnDelete(DeleteBehavior.SetNull);
-
+            builder.Property(c => c.CityName).IsRequired();
             builder.HasIndex(c => c.CityName).IsUnique();
+
+            builder.Property(c => c.Deleted).HasDefaultValue(false);
+            builder.Property(c => c.CreatedAt).HasDefaultValueSql("GETDATE()");
         }
     }
 }
