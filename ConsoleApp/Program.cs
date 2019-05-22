@@ -10,11 +10,7 @@ namespace ConsoleApp
         {
             var item = new TVShowsContext();
 
-            item.Roles.Add(new Role
-            {
-                RoleName = "admin"
-            });
-            item.SaveChanges();
+            
         }
     }
 }

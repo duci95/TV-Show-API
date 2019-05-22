@@ -17,6 +17,7 @@ namespace EFDataAccess
         public DbSet<Role> Roles { get; set; }
         public DbSet<Show> Shows { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
+
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
