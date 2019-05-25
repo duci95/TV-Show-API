@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Application.DTO;
+using Application.Interfaces;
+using Application.Searches;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Application.Commands.UsersCommands
 {
-    interface IGetUsersCommand
+    public interface IGetUsersCommand : ICommand<UserSearch, IEnumerable<UserDTO>>
     {
+
     }
 }
