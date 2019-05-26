@@ -1,0 +1,9 @@
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.deps.json
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.dll
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.pdb
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csprojAssemblyReference.cache
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csproj.CoreCompileInputs.cache
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfoInputs.cache
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfo.cs
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.dll
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.pdb

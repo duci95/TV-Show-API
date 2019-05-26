@@ -17,12 +17,12 @@ namespace EFDataAccess
         public DbSet<Role> Roles { get; set; }
         public DbSet<Show> Shows { get; set; }
         public DbSet<Sponsor> Sponsors { get; set; }
-
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=ASUS-PC;Initial Catalog=ISDB;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=isdb;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
