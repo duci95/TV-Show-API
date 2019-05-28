@@ -8,9 +8,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            var item = new TVShowsContext();
-
-            
+                        
         }
     }
 }

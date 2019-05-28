@@ -9,6 +9,5 @@ namespace Application.DTO
         public int Id { get; set; }
         public string ShowTitle  { get; set; }
         public string ShowText { get; set; }
-        
     }
 }

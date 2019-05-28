@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Application.Exceptions
 {
-    public class DataAlreadyExists : Exception
+    public class DataAlreadyExistsException : Exception
     {
       
     }

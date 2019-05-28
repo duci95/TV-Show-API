@@ -14,3 +14,19 @@ C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\EFCommands\obj\Debug\netcor
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.csproj.CopyComplete
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.dll
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\EFCommands.deps.json
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\EFCommands.dll
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\EFCommands.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\Application.dll
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\EFDataAccess.dll
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\Application.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\EFDataAccess.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.csproj.CopyComplete
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.dll
+C:\Users\ASUS\source\repos\TV-Show-API\EFCommands\obj\Debug\netcoreapp2.2\EFCommands.pdb

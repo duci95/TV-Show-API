@@ -31,6 +31,8 @@ namespace API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<TVShowsContext>();
             services.AddTransient<IAddUserCommand, EFAddUserCommand>();
+            services.AddTransient<IGetUserCommand, EFGetUserCommand>();
+            //services.AddTransient<IGetUsersCommand, EFGetUsersCommand>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,6 +8,5 @@ namespace Application.Commands.UsersCommands
 {
     public interface IAddUserCommand : ICommand<UserDTO>
     {
-
     }
 }
