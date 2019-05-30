@@ -20,20 +20,6 @@ namespace Domain
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<CommentVote> CommentVotes { get; set; }
-
-        public static explicit operator User(global::Application.DTO.UserDTO v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static explicit operator User(global::Application.DTO.UserDTO v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<ShowVote> ShowVotes { get; set; }
-        public ICollection<Report> Reports { get; set; }
+        public ICollection<Comment> Comments { get; set; }    
     }
 }

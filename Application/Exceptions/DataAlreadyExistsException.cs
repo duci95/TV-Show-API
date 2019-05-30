@@ -6,6 +6,7 @@ namespace Application.Exceptions
 {
     public class DataAlreadyExistsException : Exception
     {
-      
+       
+                
     }
 }

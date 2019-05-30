@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Application.Commands.UsersCommands
 {
-    public interface IDeleteUserCommand : ICommand<UserDTO>
+    public interface IDeleteUserCommand : ICommand<int>
     {
 
     }

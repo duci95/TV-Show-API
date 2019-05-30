@@ -9,15 +9,13 @@ namespace Domain
         public string ShowTitle { get; set; }
         public string ShowText { get; set; }
         public int ShowYear { get; set; }
-        public string ShowPicturePath { get; set; }
-        public int ShowLike { get; set; }
-        public int ShowDislike { get; set; }
+        public string ShowPicturePath { get; set; }        
 
-        public int LinkId { get; set; }
-        public Link Link { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
         public ICollection<ActorShow> ActorShows { get; set; }
-        public ICollection<ShowVote> ShowVotes { get; set; }
+        
 
     }
 }

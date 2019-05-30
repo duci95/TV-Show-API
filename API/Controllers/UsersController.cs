@@ -18,26 +18,45 @@ namespace API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly TVShowsContext tVShowsContext;
+        //private readonly TVShowsContext tVShowsContext;
 
         private IAddUserCommand _addUserCommand;
         private IGetUserCommand _getUserCommand;
-        
+        private IGetUsersCommand _getUsersCommand;
+        private IEditUserCommand _editUserCommand;
+        private IDeleteUserCommand _deleteUserCommand;
 
-        public UsersController(IAddUserCommand _addUserCommand, IGetUserCommand _getUserCommand)
+        public UsersController(IAddUserCommand _addUserCommand, 
+                               IGetUserCommand _getUserCommand, 
+                               IGetUsersCommand _getUsersCommand,
+                               IEditUserCommand _editUserCommand,
+                               IDeleteUserCommand _deleteUserCommand)
         {
             this._addUserCommand = _addUserCommand;
             this._getUserCommand = _getUserCommand;
-
-            
-
+            this._getUsersCommand = _getUsersCommand;
+            this._editUserCommand = _editUserCommand;
+            this._deleteUserCommand = _deleteUserCommand;
         }
 
         // GET: api/Users
         [HttpGet]
-        public void Get([FromQuery] UserSearch query)
+        public IActionResult Get([FromQuery] UserSearch query)
         {
-            
+            try
+            {
+                var searched = _getUsersCommand.Execute(query);
+                return Ok(searched);
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound("There is no match with searched criteria");
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Server is currently under construction, please try later");
+            }
+           
         }
                   
         // GET: api/Users/5
@@ -49,9 +68,13 @@ namespace API.Controllers
                 var user = _getUserCommand.Execute(id);
                 return Ok(user);
             }
+            catch (DataNotFoundException)
+            {
+                return NotFound("User with that id does not exists");
+            }
             catch (Exception)
             {
-                return NotFound("User with that id not found");
+                return  StatusCode(500, "Server is currently under construction, please try later");
             }
         }
 
@@ -59,43 +82,70 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] UserDTO request)
         {
-
-            var user = new User
-            {
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                Email = request.Email,
-                Gender = request.Gender,
-                Password = request.Password,
-                RoleId = request.RoleId,
-                CityId = request.CityId,
-                Token = "dfjsdofjsdojojsog",
-                Username = request.Username
-            };              
-
             try
-            {
-                
+            {  //request.id u uri stalno stvalja 0 ali u bazi je dobar
                 _addUserCommand.Execute(request);
-                return StatusCode(201, "Success");
+                return Created("/api/users/" + request.Id, new UserDTO
+                {
+                    Id = request.Id,
+                    FirstName = request.FirstName,
+                    LastName = request.LastName,
+                    Email = request.Email,
+                    Gender = request.Gender,
+                    RoleId = request.RoleId,
+                    CityId = request.CityId,
+                    Username = request.Username
+                    
+                    
+                });
             }
-            
+            catch (DataAlreadyExistsException)
+            { 
+                return Conflict("Username or email alreday exists!");
+            }
             catch (Exception)
             {
-                return StatusCode(500, "Something is wrong but i dont know what!");
+                return StatusCode(500, "Server is currently under construction, please try later");
             }                          
         }
-
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] UserDTO request)
         {
+            try
+            {
+                //kako !!??
+                //id je uvek 0
+                
+                _editUserCommand.Execute(request);
+                return NoContent();
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound("User with that id does not exists"); 
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message + "" + e.Data+" Server is currently under construction, please try later"); 
+            }
         }
-
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                _deleteUserCommand.Execute(id);
+                return NoContent();
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound();                    
+            }
+            catch (Exception)
+            {
+                return StatusCode(500,"Seerver error");
+            }
         }
     }
 }

@@ -32,7 +32,9 @@ namespace API
             services.AddDbContext<TVShowsContext>();
             services.AddTransient<IAddUserCommand, EFAddUserCommand>();
             services.AddTransient<IGetUserCommand, EFGetUserCommand>();
-            //services.AddTransient<IGetUsersCommand, EFGetUsersCommand>();
+            services.AddTransient<IGetUsersCommand, EFGetUsersCommand>();
+            services.AddTransient<IEditUserCommand, EFEditUserCommand>();
+            services.AddTransient<IDeleteUserCommand, EFDeleteUserCommand>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

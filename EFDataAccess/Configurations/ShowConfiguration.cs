@@ -12,10 +12,7 @@ namespace EFDataAccess.Configurations
         public void Configure(EntityTypeBuilder<Show> builder)
         {
             builder.Property(s => s.CreatedAt).HasDefaultValueSql("GETDATE()");
-            builder.Property(s => s.Deleted).HasDefaultValue(false);
-
-            builder.Property(s => s.ShowLike).HasDefaultValue(0);
-            builder.Property(s => s.ShowDislike).HasDefaultValue(0);
+            builder.Property(s => s.Deleted).HasDefaultValue(false);                                   
 
             builder.Property(s => s.ShowPicturePath).HasMaxLength(150);
             builder.Property(s => s.ShowPicturePath).IsRequired();

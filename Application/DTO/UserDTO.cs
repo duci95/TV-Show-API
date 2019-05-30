@@ -14,7 +14,7 @@ namespace Application.DTO
         public string Password { get; set; }
         public string Username { get; set; }
         public char Gender { get; set; }
-        public string Token { get; set; }
+        
 
         public int RoleId { get; set; }
         public int CityId { get; set; }

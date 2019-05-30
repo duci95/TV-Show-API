@@ -10,9 +10,8 @@ namespace EFDataAccess.Configurations
     public class CommentConfiguration : IEntityTypeConfiguration<Comment>
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
-        {
-            builder.Property(c => c.CommentDislike).HasDefaultValue(0);
-            builder.Property(c => c.CommentLike).HasDefaultValue(0);
+        {            
+            
 
             builder.Property(c => c.CommentText).IsRequired();
             builder.Property(c => c.CommentText).HasMaxLength(150);

@@ -30,9 +30,7 @@ namespace EFCommands.UserCommands
                 Username = user.Username,
                 CityId = user.CityId,
                 RoleId = user.RoleId,
-                Gender = user.Gender,
-                Password = user.Password,
-                Token = user.Token
+                Gender = user.Gender                                
             };
         }
     }

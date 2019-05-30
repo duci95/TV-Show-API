@@ -61,6 +61,34 @@ namespace EFDataAccess.Migrations
                     b.ToTable("ActorShow");
                 });
 
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryTitle")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryTitle")
+                        .IsUnique();
+
+                    b.ToTable("Links");
+                });
+
             modelBuilder.Entity("Domain.City", b =>
                 {
                     b.Property<int>("Id")
@@ -94,14 +122,6 @@ namespace EFDataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CommentDislike")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<int>("CommentLike")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
                     b.Property<string>("CommentText")
                         .IsRequired()
                         .HasMaxLength(150);
@@ -127,85 +147,6 @@ namespace EFDataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
-                });
-
-            modelBuilder.Entity("Domain.CommentVote", b =>
-                {
-                    b.Property<int>("CommentId");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("CommentId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CommentVote");
-                });
-
-            modelBuilder.Entity("Domain.Link", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("LinkTitle")
-                        .IsRequired()
-                        .HasMaxLength(30);
-
-                    b.Property<int>("Parent");
-
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasMaxLength(30);
-
-                    b.Property<DateTime?>("UpdatedAt");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LinkTitle")
-                        .IsUnique();
-
-                    b.HasIndex("Path")
-                        .IsUnique();
-
-                    b.ToTable("Links");
-                });
-
-            modelBuilder.Entity("Domain.Report", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Activity")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<DateTime?>("UpdatedAt");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("Domain.Role", b =>
@@ -242,6 +183,8 @@ namespace EFDataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryId");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("GETDATE()");
@@ -249,16 +192,6 @@ namespace EFDataAccess.Migrations
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
-
-                    b.Property<int>("LinkId");
-
-                    b.Property<int>("ShowDislike")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<int>("ShowLike")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
 
                     b.Property<string>("ShowPicturePath")
                         .IsRequired()
@@ -278,7 +211,7 @@ namespace EFDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LinkId");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ShowPicturePath")
                         .IsUnique();
@@ -287,51 +220,6 @@ namespace EFDataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("Shows");
-                });
-
-            modelBuilder.Entity("Domain.ShowVote", b =>
-                {
-                    b.Property<int>("ShowId");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("ShowId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ShowVote");
-                });
-
-            modelBuilder.Entity("Domain.Sponsor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("SponsorPicturePath")
-                        .IsRequired()
-                        .HasMaxLength(120);
-
-                    b.Property<string>("SponsorURL")
-                        .IsRequired()
-                        .HasMaxLength(70);
-
-                    b.Property<DateTime?>("UpdatedAt");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SponsorURL")
-                        .IsUnique();
-
-                    b.ToTable("Sponsors");
                 });
 
             modelBuilder.Entity("Domain.User", b =>
@@ -421,45 +309,11 @@ namespace EFDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Domain.CommentVote", b =>
-                {
-                    b.HasOne("Domain.Comment", "Comment")
-                        .WithMany("CommentVotes")
-                        .HasForeignKey("CommentId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.User", "User")
-                        .WithMany("CommentVotes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Domain.Report", b =>
-                {
-                    b.HasOne("Domain.User", "User")
-                        .WithMany("Reports")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Domain.Show", b =>
                 {
-                    b.HasOne("Domain.Link", "Link")
-                        .WithMany()
-                        .HasForeignKey("LinkId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Domain.ShowVote", b =>
-                {
-                    b.HasOne("Domain.Show", "Show")
-                        .WithMany("ShowVotes")
-                        .HasForeignKey("ShowId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.User", "User")
-                        .WithMany("ShowVotes")
-                        .HasForeignKey("UserId")
+                    b.HasOne("Domain.Category", "Category")
+                        .WithMany("Shows")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
