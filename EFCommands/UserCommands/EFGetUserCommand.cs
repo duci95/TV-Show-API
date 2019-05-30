@@ -20,7 +20,10 @@ namespace EFCommands.UserCommands
 
             if (user == null)
                 throw new DataNotFoundException();
-
+            if(user.Deleted == true)
+            {
+                throw new DataNotFoundException();
+            }
             return new UserDTO
             {
                 Id = user.Id,

@@ -15,23 +15,27 @@ namespace API.Controllers
     public class CitiesController : ControllerBase
     {
         private IAddCityCommand _addCityCommand;
-        private IDeleteCItyCommand _deleteCItyCommand;
-        private IEditCityCommand _editCityCommand;
-        private IGetCitiesCommand _getCitiesCommand;
-        private IGetCityCommand _getCityCommand;
+        //private IDeleteCItyCommand _deleteCItyCommand;
+        //private IEditCityCommand _editCityCommand;
+        //private IGetCitiesCommand _getCitiesCommand;
+        //private IGetCityCommand _getCityCommand;
 
-        public CitiesController(IAddCityCommand addCityCommand, IDeleteCItyCommand deleteCItyCommand, IEditCityCommand editCityCommand, IGetCitiesCommand getCitiesCommand, IGetCityCommand getCityCommand)
+        /*
+         * , IDeleteCItyCommand deleteCItyCommand, IEditCityCommand editCityCommand, IGetCitiesCommand getCitiesCommand, IGetCityCommand getCityCommand
+         * 
+         * 
+         * */
+
+
+        public CitiesController(IAddCityCommand addCityCommand)
         {
             _addCityCommand = addCityCommand;
-            _deleteCItyCommand = deleteCItyCommand;
-            _editCityCommand = editCityCommand;
-            _getCitiesCommand = getCitiesCommand;
-            _getCityCommand = getCityCommand;
+            //_deleteCItyCommand = deleteCItyCommand;
+            //_editCityCommand = editCityCommand;
+            //_getCitiesCommand = getCitiesCommand;
+            //_getCityCommand = getCityCommand;
         }
-
-
-
-
+                
         // GET: api/Cities
         [HttpGet]
         public IEnumerable<string> Get()
@@ -40,7 +44,7 @@ namespace API.Controllers
         }
 
         // GET: api/Cities/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
@@ -53,11 +57,7 @@ namespace API.Controllers
             try
             {
                 _addCityCommand.Execute(value);
-                return Created("/api/cities/" + value.Id, new CityDTO
-                {
-                    Id = value.Id,
-                    CityName = value.CityName
-                });
+                return StatusCode(201, "City successfuly inserted");
             }
             catch (DataAlreadyExistsException)
             {

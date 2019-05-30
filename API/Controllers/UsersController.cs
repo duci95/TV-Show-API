@@ -60,7 +60,7 @@ namespace API.Controllers
         }
                   
         // GET: api/Users/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
@@ -83,19 +83,9 @@ namespace API.Controllers
         public IActionResult Post([FromBody] UserDTO request)
         {
             try
-            {  //request.id u uri stalno stvalja 0 ali u bazi je dobar
+            {  
                 _addUserCommand.Execute(request);
-                return Created("/api/users/" + request.Id, new UserDTO
-                {
-                    Id = request.Id,
-                    FirstName = request.FirstName,
-                    LastName = request.LastName,
-                    Email = request.Email,
-                    Gender = request.Gender,
-                    RoleId = request.RoleId,
-                    CityId = request.CityId,
-                    Username = request.Username                                       
-                });
+                return StatusCode(201, "User successfuly has been created");
             }
             catch (DataAlreadyExistsException)
             { 
@@ -111,10 +101,7 @@ namespace API.Controllers
         public IActionResult Put(int id, [FromBody] UserDTO request)
         {
             try
-            {
-                //kako !!??
-                //id je uvek 0
-                //null reference exception
+            {                
                 _editUserCommand.Execute(request);
                 return NoContent();
             }
@@ -122,9 +109,9 @@ namespace API.Controllers
             {
                 return NotFound("User with that id does not exists"); 
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return StatusCode(500, e.Message + "" + e.Data+" Server is currently under construction, please try later"); 
+                return StatusCode(500, "Server is currently under construction, please try later"); 
             }
         }
         // DELETE: api/ApiWithActions/5
@@ -132,9 +119,7 @@ namespace API.Controllers
         public IActionResult Delete(int id)
         {
             try
-            {
-                //null reference exception
-                //id je dobar
+            {                
                 _deleteUserCommand.Execute(id);
                 return NoContent();
             }
