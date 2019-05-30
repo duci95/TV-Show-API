@@ -1,3 +1,9 @@
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cache
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cs
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.AssemblyInfo.cs
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\API.deps.json
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\API.runtimeconfig.json
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\API.runtimeconfig.dev.json
@@ -11,12 +17,6 @@ C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\Application.p
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\Domain.pdb
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\EFCommands.pdb
 C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Debug\netcoreapp2.2\EFDataAccess.pdb
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.csprojAssemblyReference.cache
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cache
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.RazorAssemblyInfo.cs
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.AssemblyInfoInputs.cache
-C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.AssemblyInfo.cs
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.RazorTargetAssemblyInfo.cache
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.csproj.CopyComplete
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Debug\netcoreapp2.2\API.dll

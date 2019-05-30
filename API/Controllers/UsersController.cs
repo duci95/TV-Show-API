@@ -94,14 +94,12 @@ namespace API.Controllers
                     Gender = request.Gender,
                     RoleId = request.RoleId,
                     CityId = request.CityId,
-                    Username = request.Username
-                    
-                    
+                    Username = request.Username                                       
                 });
             }
             catch (DataAlreadyExistsException)
             { 
-                return Conflict("Username or email alreday exists!");
+                return Conflict("Username or email already exists!");
             }
             catch (Exception)
             {
@@ -116,7 +114,7 @@ namespace API.Controllers
             {
                 //kako !!??
                 //id je uvek 0
-                
+                //null reference exception
                 _editUserCommand.Execute(request);
                 return NoContent();
             }
@@ -135,6 +133,8 @@ namespace API.Controllers
         {
             try
             {
+                //null reference exception
+                //id je dobar
                 _deleteUserCommand.Execute(id);
                 return NoContent();
             }
@@ -144,7 +144,7 @@ namespace API.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500,"Seerver error");
+                return StatusCode(500,"Server error");
             }
         }
     }

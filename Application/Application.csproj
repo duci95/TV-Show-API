@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\CitiesCommand\" />
-    <Folder Include="Commands\RolesCommand\" />
+    <Folder Include="Commands\RolesCommands\" />
   </ItemGroup>
 
 </Project>

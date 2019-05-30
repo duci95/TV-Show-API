@@ -14,6 +14,7 @@ namespace EFDataAccess.Configurations
             builder.Property(c => c.CityName).IsRequired();
             builder.HasIndex(c => c.CityName).IsUnique();
 
+            builder.Property(c => c.CityName).HasMaxLength(30);
             builder.Property(c => c.Deleted).HasDefaultValue(false);
             builder.Property(c => c.CreatedAt).HasDefaultValueSql("GETDATE()");
         }
