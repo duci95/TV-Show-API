@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Application.Searches
 {
-    public class CitySearch : Pagination<CityDTO>
-    {
-        public int Id { get; set; }
-        public string CityName { get; set; }
-        public bool OnlyActive { get; set; }
+    public class CitySearch : BaseSearch
+    {        
+        public string CityName { get; set; }          
     }
 }

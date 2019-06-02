@@ -23,14 +23,14 @@ namespace EFCommands.UserCommands
             {
                 wanted = wanted.Where(u => u.Deleted != request.OnlyActive);
             }
-            //samo keyword nece da radi
-            //Object reference not set to an instance of an object
+            
             if (request.Keyword != null)
             {
                 wanted = wanted
                     .Where(u => u.Username.ToLower()
                     .Contains(request.Keyword.ToLower()));
             }
+
             if (request.Id.HasValue)
             {
                 wanted = wanted.Where(u => u.Id.Equals(request.Id));
@@ -50,5 +50,3 @@ namespace EFCommands.UserCommands
         }
     }
 }
-
- 

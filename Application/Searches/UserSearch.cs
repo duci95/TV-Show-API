@@ -5,11 +5,8 @@ using System.Text;
 
 namespace Application.Searches
 {
-    public class UserSearch : Pagination<UserDTO>
-    {
-        public int? Id { get; set; }
-        public string Keyword { get; set; }
-        public string Username { get; set; }
-        public bool? OnlyActive { get; set; }
+    public class UserSearch : BaseSearch
+    {        
+        public string Username { get; set; }        
     }
 }

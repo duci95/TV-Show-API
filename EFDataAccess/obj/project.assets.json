@@ -3631,37 +3631,37 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Users\\Dušan Krsmanović\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\TV-Show-API\\EFDataAccess\\EFDataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Dušan Krsmanović\\source\\repos\\TV-Show-API\\EFDataAccess\\EFDataAccess.csproj",
       "projectName": "EFDataAccess",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\TV-Show-API\\EFDataAccess\\EFDataAccess.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\TV-Show-API\\EFDataAccess\\obj\\",
+      "projectPath": "C:\\Users\\Dušan Krsmanović\\source\\repos\\TV-Show-API\\EFDataAccess\\EFDataAccess.csproj",
+      "packagesPath": "C:\\Users\\Dušan Krsmanović\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dušan Krsmanović\\source\\repos\\TV-Show-API\\EFDataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Dušan Krsmanović\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\ASUS\\source\\repos\\TV-Show-API\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\source\\repos\\TV-Show-API\\Domain\\Domain.csproj"
+            "C:\\Users\\Dušan Krsmanović\\source\\repos\\TV-Show-API\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Dušan Krsmanović\\source\\repos\\TV-Show-API\\Domain\\Domain.csproj"
             }
           }
         }

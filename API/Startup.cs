@@ -33,7 +33,6 @@ namespace API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<TVShowsContext>();
-
             #region Users
             services.AddTransient<IAddUserCommand, EFAddUserCommand>();
             services.AddTransient<IGetUserCommand, EFGetUserCommand>();
@@ -41,10 +40,14 @@ namespace API
             services.AddTransient<IEditUserCommand, EFEditUserCommand>();
             services.AddTransient<IDeleteUserCommand, EFDeleteUserCommand>();
             #endregion
-
             #region Cities
-            services.AddTransient<IAddCityCommand, EFAddCityCommand>();  
+            services.AddTransient<IGetCitiesCommand, EFGetCitiesCommand>();
+            services.AddTransient<IAddCityCommand, EFAddCityCommand>();
+            services.AddTransient<IGetCityCommand, EFGetCityCommand>();
+            services.AddTransient<IDeleteCItyCommand, EFDeleteCityCommand>();
+            services.AddTransient<IEditCityCommand, EFEditCityCommand>();
             #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

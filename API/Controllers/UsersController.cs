@@ -18,8 +18,7 @@ namespace API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        //private readonly TVShowsContext tVShowsContext;
-
+        
         private IAddUserCommand _addUserCommand;
         private IGetUserCommand _getUserCommand;
         private IGetUsersCommand _getUsersCommand;
@@ -80,7 +79,7 @@ namespace API.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public IActionResult Post([FromBody] UserDTO request)
+        public IActionResult Post(UserDTO request)
         {
             try
             {  
@@ -98,7 +97,7 @@ namespace API.Controllers
         }
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] UserDTO request)
+        public IActionResult Put(int id, UserDTO request)
         {
             try
             {                
@@ -108,6 +107,14 @@ namespace API.Controllers
             catch (DataNotFoundException)
             {
                 return NotFound("User with that id does not exists"); 
+            }
+            catch (DataAlreadyExistsException)
+            {
+                return Conflict("User with that email already exists");
+            }
+            catch (DataNotAlteredException)
+            {
+                return Conflict("User already have same value for email");
             }
             catch (Exception)
             {
@@ -126,10 +133,10 @@ namespace API.Controllers
             catch (DataNotFoundException)
             {
                 return NotFound();                    
-            }
+            }            
             catch (Exception)
             {
-                return StatusCode(500,"Server error");
+                return StatusCode(500, "Server is currently under construction, please try later");
             }
         }
     }

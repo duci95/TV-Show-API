@@ -19,22 +19,27 @@ namespace EFCommands.UserCommands
         {
             var user = Context.Users.Find(request.Id);
 
-            if(user == null)
+            if (user == null)
             {
                 throw new DataNotFoundException();
             }
-            if(user.Email != request.Email)
+            if (user.Email != request.Email)
             {
-                if(Context.Users.Any(u => u.Email == request.Email))
+                if (Context.Users.Any(u => u.Email == request.Email))
                 {
                     throw new DataAlreadyExistsException();
                 }
-
                 user.Email = request.Email;
+                user.UpdatedAt = DateTime.Now;
 
                 Context.SaveChanges();
-            }           
-            
+            }
+            else
+            {
+                throw new DataNotAlteredException();
+            }
+
+
         }
     }
 }

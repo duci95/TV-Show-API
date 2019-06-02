@@ -12,5 +12,6 @@ namespace Application.DTO
         [MinLength(3,ErrorMessage="Name of city cannot be shorter than 3")]
         [MaxLength(30,ErrorMessage="Name of city cannot be longer than 30")]
         public string CityName { get; set; }
+        public IEnumerable<string> Users { get; set; }
     }
 }
