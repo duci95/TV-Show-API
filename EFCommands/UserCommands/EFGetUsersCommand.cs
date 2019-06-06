@@ -24,17 +24,13 @@ namespace EFCommands.UserCommands
                 wanted = wanted.Where(u => u.Deleted != request.OnlyActive);
             }
             
-            if (request.Keyword != null)
+            if (request.Username != null)
             {
                 wanted = wanted
                     .Where(u => u.Username.ToLower()
-                    .Contains(request.Keyword.ToLower()));
+                    .Contains(request.Username.ToLower()));
             }
 
-            if (request.Id.HasValue)
-            {
-                wanted = wanted.Where(u => u.Id.Equals(request.Id));
-            }
 
             return wanted.Select(u => new UserDTO
             {

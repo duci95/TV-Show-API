@@ -15,7 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using EFCommands.CityCommands;
-
+using Application.Commands.RolesCommands;
+using EFCommands.RoleCommands;
 
 namespace API
 {
@@ -33,20 +34,32 @@ namespace API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<TVShowsContext>();
-            #region Users
+            
+            //users
+
             services.AddTransient<IAddUserCommand, EFAddUserCommand>();
             services.AddTransient<IGetUserCommand, EFGetUserCommand>();
             services.AddTransient<IGetUsersCommand, EFGetUsersCommand>();
             services.AddTransient<IEditUserCommand, EFEditUserCommand>();
             services.AddTransient<IDeleteUserCommand, EFDeleteUserCommand>();
-            #endregion
-            #region Cities
+            
+            //cities
+            
             services.AddTransient<IGetCitiesCommand, EFGetCitiesCommand>();
             services.AddTransient<IAddCityCommand, EFAddCityCommand>();
             services.AddTransient<IGetCityCommand, EFGetCityCommand>();
             services.AddTransient<IDeleteCItyCommand, EFDeleteCityCommand>();
             services.AddTransient<IEditCityCommand, EFEditCityCommand>();
-            #endregion
+
+            //roles
+
+            services.AddTransient<IGetRolesCommand, EFGetRolesCommand>();
+            services.AddTransient<IGetRoleCommand, EFGetRoleCommand>();
+            services.AddTransient<IAddRoleCommand, EFAddRoleCommand>();
+            services.AddTransient<IEditRoleCommand, EFEditRoleCommand>();
+            services.AddTransient<IDeleteRoleCommand, EFDeleteRoleCommand>();
+
+            
 
         }
 

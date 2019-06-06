@@ -30,3 +30,19 @@ C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcor
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.csproj.CopyComplete
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.dll
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.deps.json
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.runtimeconfig.json
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.runtimeconfig.dev.json
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.dll
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\EFDataAccess.dll
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\EFDataAccess.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.csproj.CopyComplete
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.dll
+C:\Users\ASUS\source\repos\TV-Show-API\ConsoleApp\obj\Debug\netcoreapp2.2\ConsoleApp.pdb

@@ -31,14 +31,13 @@ namespace EFCommands.CityCommands
                 query = query.Where(c => c.Deleted != criteria.OnlyActive);
             }
 
-
             return query.Include(u => u.Users).Select(c => new CityDTO
             {
                 Id = c.Id,
                 CityName = c.CityName,
                 Users = c.Users.Select(u => u.Username)
             });
-            
+
         }
     }
 }

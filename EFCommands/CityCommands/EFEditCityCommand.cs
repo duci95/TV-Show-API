@@ -17,7 +17,7 @@ namespace EFCommands.CityCommands
 
         public void Execute(CityDTO request)
         {
-            var city = Context.Cities.Find(request);
+            var city = Context.Cities.Find(request.Id);
 
             if(city == null)
             {
@@ -32,6 +32,7 @@ namespace EFCommands.CityCommands
                 }
 
                 city.CityName = request.CityName;
+                city.UpdatedAt = DateTime.Now;
                 Context.SaveChanges();
             }
             else

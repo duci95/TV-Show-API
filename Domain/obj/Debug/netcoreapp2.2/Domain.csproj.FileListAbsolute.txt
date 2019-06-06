@@ -24,3 +24,4 @@ C:\Users\ASUS\source\repos\TV-Show-API\Domain\obj\Debug\netcoreapp2.2\Domain.Ass
 C:\Users\ASUS\source\repos\TV-Show-API\Domain\obj\Debug\netcoreapp2.2\Domain.AssemblyInfo.cs
 C:\Users\ASUS\source\repos\TV-Show-API\Domain\obj\Debug\netcoreapp2.2\Domain.dll
 C:\Users\ASUS\source\repos\TV-Show-API\Domain\obj\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\Domain\obj\Debug\netcoreapp2.2\Domain.csprojAssemblyReference.cache

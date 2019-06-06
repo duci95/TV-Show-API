@@ -88,7 +88,7 @@ namespace EFDataAccess.Migrations
                     b.HasIndex("CategoryTitle")
                         .IsUnique();
 
-                    b.ToTable("Links");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.City", b =>
