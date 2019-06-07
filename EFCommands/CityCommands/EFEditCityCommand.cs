@@ -19,7 +19,7 @@ namespace EFCommands.CityCommands
         {
             var city = Context.Cities.Find(request.Id);
 
-            if(city == null)
+            if(city == null || city.Deleted == true)
             {
                 throw new DataNotFoundException();
             }

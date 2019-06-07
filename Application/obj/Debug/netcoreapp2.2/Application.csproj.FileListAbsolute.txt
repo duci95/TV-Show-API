@@ -7,6 +7,9 @@ C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netco
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfo.cs
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.dll
 C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.pdb
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csproj.CopyComplete
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.deps.json
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.dll
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.pdb
@@ -19,6 +22,3 @@ C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Appli
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csproj.CopyComplete
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.dll
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.pdb
-C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.dll
-C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.pdb
-C:\Users\Dušan Krsmanović\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csproj.CopyComplete

@@ -39,7 +39,21 @@ namespace API.Controllers
 
         // GET: api/Cities/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id) => Ok(_getCityCommand.Execute(id));
+        public IActionResult Get(int id)
+        {
+            try
+            {
+                return Ok(_getCityCommand.Execute(id));
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
 
         // POST: api/Cities
         [HttpPost]

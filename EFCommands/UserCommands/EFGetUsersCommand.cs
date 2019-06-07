@@ -28,7 +28,7 @@ namespace EFCommands.UserCommands
             {
                 wanted = wanted
                     .Where(u => u.Username.ToLower()
-                    .Contains(request.Username.ToLower()));
+                    .Contains(request.Username.ToLower()) && u.Deleted == false );
             }
 
 

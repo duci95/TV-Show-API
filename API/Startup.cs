@@ -17,6 +17,10 @@ using Microsoft.Extensions.Options;
 using EFCommands.CityCommands;
 using Application.Commands.RolesCommands;
 using EFCommands.RoleCommands;
+using EFCommands.ActorCommands;
+using Application.Commands.ActorsCommands;
+using Application.Commands.CategoriesCommands;
+using EFCommands.CategoryCommands;
 
 namespace API
 {
@@ -59,7 +63,21 @@ namespace API
             services.AddTransient<IEditRoleCommand, EFEditRoleCommand>();
             services.AddTransient<IDeleteRoleCommand, EFDeleteRoleCommand>();
 
-            
+            //actors
+
+            services.AddTransient<IAddActorCommand, EFAddActorCommand>();
+            services.AddTransient<IGetActorsCommand, EFGetActorsCommand>();
+            services.AddTransient<IGetActorCommand, EFGetActorCommand>();
+            services.AddTransient<IEditActorCommand, EFEditActorCommand>();            
+            services.AddTransient<IDeleteActorCommand, EFDeleteActorCommand>();
+
+            //categories
+
+            services.AddTransient<IGetCategoriesCommand, EFGetCategoriesCommand>();
+            services.AddTransient<IGetCategoryCommand, EFGetCategoryCommand>();
+            services.AddTransient<IAddCategoryCommand, EFAddCategoryCommand>();
+            services.AddTransient<IEditCategoryCommand, EFEditCategoryCommand>();
+            services.AddTransient<IDeleteCategoryCommand, EFDeleteCategoryCommand>();          
 
         }
 

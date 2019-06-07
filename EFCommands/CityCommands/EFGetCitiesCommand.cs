@@ -23,7 +23,7 @@ namespace EFCommands.CityCommands
             
             if(criteria.CityName != null)
             {
-                query = query.Where(c => c.CityName.ToLower().Contains(criteria.CityName.ToLower()));
+                query = query.Where(c => c.CityName.ToLower().Contains(criteria.CityName.ToLower()) && c.Deleted == false);
             }
 
             if (criteria.OnlyActive.HasValue)

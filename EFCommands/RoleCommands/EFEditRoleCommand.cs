@@ -19,7 +19,7 @@ namespace EFCommands.RoleCommands
         {
             var data = Context.Roles.Find(request.Id);
 
-            if (data == null)
+            if (data == null || data.Deleted == true)
                 throw new DataNotFoundException();
 
             if (data.RoleName != request.RoleName)

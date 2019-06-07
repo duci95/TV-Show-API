@@ -40,23 +40,9 @@ namespace API.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public IActionResult Get([FromQuery] UserSearch query)
-        {
-            try
-            {
-                var searched = _getUsersCommand.Execute(query);
-                return Ok(searched);
-            }
-            catch (DataNotFoundException)
-            {
-                return NotFound("There is no match with searched criteria");
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, "Server is currently under construction, please try later");
-            }
-           
-        }
+        public IActionResult Get([FromQuery] UserSearch query)                              
+              =>  Ok(_getUsersCommand.Execute(query));                     
+        
                   
         // GET: api/Users/5
         [HttpGet("{id}")]

@@ -20,12 +20,11 @@ namespace EFCommands.RoleCommands
         public IEnumerable<RoleDTO> Execute(RoleSearch request)
         {
             var data = Context.Roles.AsQueryable();
-            
-
-            if(request.RoleName != null)
+                        
+            if(request.RoleName != null )
             {
                 var name = request.RoleName;
-                data = Context.Roles.Where(r => r.RoleName.ToLower().Contains(name));
+                data = Context.Roles.Where(r => r.RoleName.ToLower().Contains(name) && r.Deleted == false);
             }
             
             if (request.OnlyActive.HasValue)

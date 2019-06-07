@@ -86,7 +86,7 @@ namespace EFDataAccess.Migrations
                     b.HasIndex("CategoryTitle")
                         .IsUnique();
 
-                    b.ToTable("Links");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Domain.City", b =>
@@ -96,7 +96,8 @@ namespace EFDataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CityName")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()

@@ -19,7 +19,7 @@ namespace EFCommands.UserCommands
         {
             var user = Context.Users.Find(request.Id);
 
-            if (user == null)
+            if (user == null || user.Deleted == true)
             {
                 throw new DataNotFoundException();
             }
