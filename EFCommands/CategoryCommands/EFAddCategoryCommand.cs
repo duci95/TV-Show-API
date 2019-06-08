@@ -21,11 +21,12 @@ namespace EFCommands.CategoryCommands
         {
             if (Context.Categories.Any(c => c.CategoryTitle == request.CategoryName))
                 throw new DataAlreadyExistsException();
-
-            Context.Categories.Add(new Category
-            {
-                CategoryTitle = request.CategoryName                
-            });
+            
+                Context.Categories.Add(new Category
+                {
+                    CategoryTitle = request.CategoryName
+                });
+            
             Context.SaveChanges();
         }
     }

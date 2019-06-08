@@ -22,8 +22,9 @@ namespace EFCommands.CategoryCommands
                 throw new DataNotFoundException();
             if (cat.CategoryTitle != request.CategoryName )
             {
-                if (Context.Categories.Any(c => c.CategoryTitle == request.CategoryName && c.Deleted == false ))
+                if (Context.Categories.Any(c => c.CategoryTitle == request.CategoryName ))
                     throw new DataAlreadyExistsException();
+                
 
                 cat.CategoryTitle = request.CategoryName;
                 cat.UpdatedAt = DateTime.Now;
