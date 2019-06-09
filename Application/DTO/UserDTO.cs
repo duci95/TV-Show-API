@@ -22,10 +22,12 @@ namespace Application.DTO
         [MaxLength(20, ErrorMessage = "Too many charachters for username, 20 is max!")]
         [MinLength(8, ErrorMessage = "Too less charachters for username, 6 is min!")]
         public string Username { get; set; }
+        [Required]
         public char Gender { get; set; }
         
-
+        [Required]
         public int RoleId { get; set; }
+        [Required]
         public int CityId { get; set; }
     }
 }

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Application.Helpers
 {
-    class AllowedExtensions
+    public class AllowedExtensions
     {
+        public static IEnumerable<string> Extensions => new List<string> {".gif", ".png", ".jpg", ".jpeg" };
     }
 }

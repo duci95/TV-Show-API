@@ -24,12 +24,12 @@ namespace EFCommands.RoleCommands
             if(request.RoleName != null )
             {
                 var name = request.RoleName;
-                data = Context.Roles.Where(r => r.RoleName.ToLower().Contains(name) && r.Deleted == false);
+                data = data.Where(r => r.RoleName.ToLower().Contains(name) && r.Deleted == false);
             }
             
             if (request.OnlyActive.HasValue)
             {
-                data = Context.Roles.Where(r => r.Deleted != request.OnlyActive);
+                data = data.Where(r => r.Deleted != request.OnlyActive);
             }
 
             return data.Include(u => u.Users).Select(d => new RoleDTO

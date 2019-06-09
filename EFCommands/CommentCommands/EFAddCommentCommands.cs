@@ -8,9 +8,9 @@ using System.Text;
 
 namespace EFCommands.CommentCommands
 {
-    public class EFAddCommentCommands : EFBaseCommand, IAddCommentCommand
+    public class EFAddCommentCommand : EFBaseCommand, IAddCommentCommand
     {
-        public EFAddCommentCommands(TVShowsContext context) : base(context)
+        public EFAddCommentCommand(TVShowsContext context) : base(context)
         {
         }
 

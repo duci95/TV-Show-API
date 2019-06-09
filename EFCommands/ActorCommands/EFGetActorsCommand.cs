@@ -21,17 +21,17 @@ namespace EFCommands.ActorCommands
             var data = Context.Actors.AsQueryable();
             if (request.OnlyActive.HasValue)
             {
-                data = Context.Actors.Where(a => a.Deleted != request.OnlyActive);
+                data = data.Where(a => a.Deleted != request.OnlyActive);
             }
             if(request.ActorFirstName != null)
             {
                 var keyword = request.ActorFirstName.ToLower();
-                data = Context.Actors.Where(a => a.ActorFirstName.ToLower().Contains(keyword) && a.Deleted == false);
+                data = data.Where(a => a.ActorFirstName.ToLower().Contains(keyword) && a.Deleted == false);
             }
             if(request.ActorLastName != null)
             {
                 var keyword = request.ActorLastName.ToLower();
-                data = Context.Actors.Where(a => a.ActorLastName.ToLower().Contains(keyword) && a.Deleted == false);
+                data = data.Where(a => a.ActorLastName.ToLower().Contains(keyword) && a.Deleted == false);
             }
 
             return data.Include(sa => sa.ActorShows)

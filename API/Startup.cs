@@ -21,6 +21,10 @@ using EFCommands.ActorCommands;
 using Application.Commands.ActorsCommands;
 using Application.Commands.CategoriesCommands;
 using EFCommands.CategoryCommands;
+using Application.Commands.CommentsCommands;
+using EFCommands.CommentCommands;
+using Application.Commands.ShowCommands;
+using EFCommands.ShowCommands;
 
 namespace API
 {
@@ -77,7 +81,20 @@ namespace API
             services.AddTransient<IGetCategoryCommand, EFGetCategoryCommand>();
             services.AddTransient<IAddCategoryCommand, EFAddCategoryCommand>();
             services.AddTransient<IEditCategoryCommand, EFEditCategoryCommand>();
-            services.AddTransient<IDeleteCategoryCommand, EFDeleteCategoryCommand>();          
+            services.AddTransient<IDeleteCategoryCommand, EFDeleteCategoryCommand>();
+
+            //comments
+
+            services.AddTransient<IGetCommentsCommand, EFGetCommentsCommand>();
+            services.AddTransient<IGetCommentCommand, EFGetCommentCommand>();
+            services.AddTransient<IAddCommentCommand, EFAddCommentCommand>();
+            services.AddTransient<IEditCommentCommand, EFEditCommentCommand>();
+            services.AddTransient<IDeleteCommentCommand, EFDeleteCommentCommand>();
+
+            //shows
+
+            services.AddTransient<IAddShowCommand, EFAddShowCommands>();
+
 
         }
 

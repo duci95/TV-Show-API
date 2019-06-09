@@ -23,11 +23,11 @@ namespace EFCommands.CategoryCommands
             if(request.CategoryName != null)
             {
                 var wanted = request.CategoryName;
-                data = Context.Categories.Where(c => c.CategoryTitle.Contains(wanted) && c.Deleted == false );
+                data = data.Where(c => c.CategoryTitle.Contains(wanted) && c.Deleted == false );
             }
             if (request.OnlyActive.HasValue)
             {
-                data = Context.Categories.Where(c => c.Deleted != request.OnlyActive);
+                data = data.Where(c => c.Deleted != request.OnlyActive);
             }
 
             return data.Include(shows => shows.Shows).Select(s => new CategoryDTO
