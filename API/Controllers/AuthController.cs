@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Helpers;
+using Application.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -11,36 +14,42 @@ namespace API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        // GET: api/Auth
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly Encryption _enc;
 
-        // GET: api/Auth/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public AuthController(Encryption enc)
         {
-            return "value";
+            _enc = enc;
         }
 
         // POST: api/Auth
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post()
         {
+            //kako bi izgledao kod za logovanje?
+            var user = new LoggedUser
+            {
+                FirstName = "Petar",
+                LastName = "Peric",
+                Id = 10,
+                Role = "Admin",
+                Username = "pera123"
+            };
+
+            var stringObjekat = JsonConvert.SerializeObject(user);
+
+            var encrypted = _enc.EncryptString(stringObjekat);
+
+            return Ok(new { token = encrypted });
         }
 
-        // PUT: api/Auth/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("decode")]
+        public IActionResult Decode(string value)
         {
-        }
+            var decodedString = _enc.DecryptString(value);
+            decodedString = decodedString.Replace("\f", "");
+            var user = JsonConvert.DeserializeObject<LoggedUser>(decodedString);
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return null;
         }
     }
 }
