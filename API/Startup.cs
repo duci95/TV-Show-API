@@ -94,7 +94,10 @@ namespace API
             //shows
 
             services.AddTransient<IAddShowCommand, EFAddShowCommands>();
-
+            services.AddTransient<IEditShowCommand, EFEditShowCommand>();
+            services.AddTransient<IGetShowCommand, EFGetShowCommand>();
+            services.AddTransient<IGetShowsCommand, EFGetShowsCommand>();
+            services.AddTransient<IDeleteShowCommand, EFDeleteShowCommand>();
 
         }
 

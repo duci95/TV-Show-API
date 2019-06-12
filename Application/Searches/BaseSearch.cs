@@ -7,7 +7,7 @@ namespace Application.Searches
     public abstract class BaseSearch 
     {       
         public bool? OnlyActive { get; set; }
-        public byte PerPage { get; set; } = 5;
-        public byte PageNumber { get; set; } = 1;
+        public short PerPage { get; set; } = 1;
+        public short PageNumber { get; set; } = 1;
     }
 }

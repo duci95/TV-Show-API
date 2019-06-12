@@ -16,7 +16,7 @@ namespace EFCommands.ActorCommands
         {
         }
 
-        public IEnumerable<ActorDTO> Execute(ActorSearch request)
+        public Pagination<ActorDTO> Execute(ActorSearch request)
         {
             var data = Context.Actors.AsQueryable();
             if (request.OnlyActive.HasValue)
@@ -34,14 +34,26 @@ namespace EFCommands.ActorCommands
                 data = data.Where(a => a.ActorLastName.ToLower().Contains(keyword) && a.Deleted == false);
             }
 
-            return data.Include(sa => sa.ActorShows)
-                .ThenInclude(s => s.Show)
-                .Select(s => new ActorDTO
+            var totalCount = data.Count();
+
+            data = data.Skip((request.PageNumber - 1) * request.PerPage)
+                .Take(request.PerPage);
+
+            var pagesCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            return new Pagination<ActorDTO>
+            {
+                CurrentPage = request.PageNumber,
+                PagesCount = pagesCount,
+                TotalCount = totalCount,
+                Data = data.Select(a => new ActorDTO
                 {
-                    ActorFirstName = s.ActorFirstName,
-                    ActorLastName = s.ActorLastName,
-                    Shows = s.ActorShows.Select(w => w.Show.ShowTitle)
-                });
+                    Id = a.Id,
+                    ActorFirstName = a.ActorFirstName,
+                    ActorLastName = a.ActorLastName,
+                    Shows = a.ActorShows.Select(s => s.Show.ShowTitle)
+                })
+            };
 
         }
 

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Commands.ActorsCommands
 {
-    public interface IGetActorsCommand : ICommand<ActorSearch, IEnumerable<ActorDTO>>
+    public interface IGetActorsCommand : ICommand<ActorSearch, Pagination<ActorDTO>>
     {
     }
 }

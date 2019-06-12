@@ -2,23 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Commands.ShowCommands;
+using Application.Searches;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
-{
+{      
+
     public class ShowsController : Controller
     {
+        private IGetShowsCommand getShowsCommand;
+        private IGetShowCommand getShowCommand;
+        private IAddShowCommand addShowCommand;
+        private IEditShowCommand editShowCommand;
+        private IDeleteShowCommand deleteShowCommand;
+
+        public ShowsController(IGetShowsCommand getShowsCommand, IGetShowCommand getShowCommand, IAddShowCommand addShowCommand, IEditShowCommand editShowCommand, IDeleteShowCommand deleteShowCommand)
+        {
+            this.getShowsCommand = getShowsCommand;
+            this.getShowCommand = getShowCommand;
+            this.addShowCommand = addShowCommand;
+            this.editShowCommand = editShowCommand;
+            this.deleteShowCommand = deleteShowCommand;
+        }
+
+
         // GET: Shows
         public ActionResult Index()
-        {
-            return View();
-        }
+         => View();
 
         // GET: Shows/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(getShowCommand.Execute(id));
         }
 
         // GET: Shows/Create

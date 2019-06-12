@@ -14,7 +14,9 @@ C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Appli
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.dll
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Application.pdb
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.dll
+C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Domain.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\Application\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.xml
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csprojAssemblyReference.cache
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\TV-Show-API\Application\obj\Debug\netcoreapp2.2\Application.AssemblyInfoInputs.cache

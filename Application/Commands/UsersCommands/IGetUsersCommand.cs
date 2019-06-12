@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Commands.UsersCommands
 {
-    public interface IGetUsersCommand : ICommand<UserSearch, IEnumerable<UserDTO>>
+    public interface IGetUsersCommand : ICommand<UserSearch, Pagination<UserDTO>>
     {
 
     }

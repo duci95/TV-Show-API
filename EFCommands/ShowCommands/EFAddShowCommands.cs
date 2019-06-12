@@ -22,25 +22,30 @@ namespace EFCommands.ShowCommands
             if (Context.Shows.Any(t => t.ShowTitle == request.ShowTitle))
                 throw new DataAlreadyExistsException();
 
-            Context.Shows.Add(new Show
+            var show = new Show
             {
                 ShowPicturePath = request.ShowPicturePath,
                 ShowText = request.ShowText,
                 ShowTitle = request.ShowTitle,
                 ShowYear = request.ShowYear,
-                CategoryId = request.CategoryId
-                //ActorShows = request.Actors.Select(a => new Actor
-                //{
-                //    ActorFirstName = a.ActorFirstName,
-                //    ActorLastName = a.ActorLastName
-                //}).ToList();
-            });
+                CategoryId = request.CategoryId                
+            };
+
+
+            //var relationships = request.ActorIds.Select(id => new ActorShow
+            //{
+            //    ActorId = id,
+            //    ShowId = show.Id
+            //});
+
+            //show.ActorShows = relationships.ToList();
+
+            Context.Shows.Add(show);
             Context.SaveChanges();
 
             //kako ubaciti i glumce
-            //edit serije 
-            //delete serije            
+            //edit serije
+            //delete serije
         }
     }
-    
 }

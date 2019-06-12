@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Commands.CommentsCommands
 {
-    public interface IGetCommentsCommand : ICommand<CommentSearch, IEnumerable<CommentDTO>>
+    public interface IGetCommentsCommand : ICommand<CommentSearch, Pagination<CommentDTO>>
     {
     }
 }

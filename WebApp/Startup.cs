@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Commands.CategoriesCommands;
+using Application.Commands.ShowCommands;
+using EFCommands.CategoryCommands;
+using EFCommands.ShowCommands;
+using EFDataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +38,25 @@ namespace WebApp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<TVShowsContext>();
+
+            //shows
+
+            //services.AddTransient<IGetShowsCommand, EFGetShowsCommand>();
+            //services.AddTransient<IGetShowCommand, EFGetShowCommand>();
+            //services.AddTransient<IEditShowCommand, EFEditShowCommand>();
+            //services.AddTransient<IAddShowCommand, EFAddShowCommands>();
+            //services.AddTransient<IDeleteShowCommand, EFDeleteShowCommand>();
+
+            //categories
+
+            //services.AddTransient<IGetCategoriesCommand, EFGetCategoriesCommand>();
+            services.AddTransient<IGetCategoryCommand, EFGetCategoryCommand>();
+            services.AddTransient<IAddCategoryCommand, EFAddCategoryCommand>();
+            services.AddTransient<IDeleteCategoryCommand, EFDeleteCategoryCommand>();
+            services.AddTransient<IEditCategoryCommand, EFEditCategoryCommand>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

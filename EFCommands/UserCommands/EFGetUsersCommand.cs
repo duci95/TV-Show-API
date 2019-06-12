@@ -15,7 +15,7 @@ namespace EFCommands.UserCommands
         {
         }
 
-        public IEnumerable<UserDTO> Execute(UserSearch request)
+        public Pagination<UserDTO> Execute(UserSearch request)
         {
             var wanted = Context.Users.AsQueryable();
 
@@ -31,18 +31,31 @@ namespace EFCommands.UserCommands
                     .Contains(request.Username.ToLower()) && u.Deleted == false );
             }
 
+            var totalCount = wanted.Count();
 
-            return wanted.Select(u => new UserDTO
+            wanted = wanted.Skip((request.PageNumber - 1) * request.PerPage)
+                .Take(request.PerPage);
+
+            var totalPages = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            var res = new Pagination<UserDTO>
             {
-                Id = u.Id,
-                FirstName = u.FirstName,
-                LastName = u.LastName,
-                Email = u.Email,
-                Username = u.Username,
-                CityId = u.CityId,
-                RoleId = u.RoleId,
-                Gender = u.Gender                
-            });
+                CurrentPage = request.PageNumber,
+                TotalCount = totalCount,
+                PagesCount = totalPages,
+                Data = wanted.Select(u => new UserDTO
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email,
+                    Username = u.Username,
+                    CityId = u.CityId,
+                    RoleId = u.RoleId,
+                    Gender = u.Gender
+                })
+            };
+            return res;          
         }
     }
 }

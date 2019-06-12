@@ -16,7 +16,7 @@ namespace EFCommands.ShowCommands
         {
         }
 
-        public IEnumerable<ShowDTO> Execute(ShowSearch request)
+        public Pagination<ShowDTO> Execute(ShowSearch request)
         {
             var data = Context.Shows.AsQueryable();
             
@@ -45,15 +45,31 @@ namespace EFCommands.ShowCommands
                 .Contains(request.ActorLastName.ToLower()) && asc.Deleted == false));
             }
 
-            return data.Include(sa => sa.ActorShows).ThenInclude(s => s.Actor)
-                .Select(f => new ShowDTO
+            var totalCount = data.Count();
+
+            data = data.Include(sa => sa.ActorShows).ThenInclude(s => s.Actor)
+                .Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
+
+            var totalPages = (int)Math.Ceiling((double)totalCount/request.PerPage);
+
+            var res = new Pagination<ShowDTO>
+            {
+                CurrentPage = request.PageNumber,
+                TotalCount = totalCount,
+                PagesCount = totalPages,
+                Data = data.Select(s => new ShowDTO
                 {
-                    Id = f.Id,
-                    ShowTitle = f.ShowTitle,
-                    ShowText = f.ShowText,
-                    ShowPicturePath = f.ShowPicturePath,
-                    CategoryId = f.Category.Id                   
-                });
+                    Id = s.Id,
+                    ActorIds = s.ActorShows.Select(a => a.ActorId),
+                    CategoryId = s.CategoryId,
+                    ShowPicturePath = s.ShowPicturePath,
+                    ShowText = s.ShowText,
+                    ShowTitle = s.ShowTitle,
+                    ShowYear = s.ShowYear
+                })
+            };
+
+            return res;
         }
     }
 }

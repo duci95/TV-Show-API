@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using API.Models;
 using Application.Commands.ShowCommands;
 using Application.DTO;
+using Application.Exceptions;
 using Application.Helpers;
+using Application.Searches;
 using Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,24 +20,41 @@ namespace API.Controllers
     public class ShowsController : ControllerBase
     {
         private IAddShowCommand addShowCommand;
+        private IEditShowCommand editShowCommand;
+        private IGetShowCommand getShowCommand;
+        private IGetShowsCommand getShowsCommand;
+        private IDeleteShowCommand deleteShowCommand;
 
-        public ShowsController(IAddShowCommand addShowCommand)
+        public ShowsController(IAddShowCommand addShowCommand, IEditShowCommand editShowCommand, IGetShowCommand getShowCommand, IGetShowsCommand getShowsCommand, IDeleteShowCommand deleteShowCommand)
         {
             this.addShowCommand = addShowCommand;
+            this.editShowCommand = editShowCommand;
+            this.getShowCommand = getShowCommand;
+            this.getShowsCommand = getShowsCommand;
+            this.deleteShowCommand = deleteShowCommand;
         }
 
         // GET: api/Shows
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        public IActionResult Get([FromQuery] ShowSearch shows)
+            => Ok(getShowsCommand.Execute(shows));        
 
         // GET: api/Shows/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                return Ok(getShowCommand.Execute(id));
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
 
         // POST: api/Shows
@@ -63,31 +82,76 @@ namespace API.Controllers
                     ShowTitle = value.ShowTitle,
                     ShowText = value.ShowText,
                     ShowYear = value.ShowYear,
-                    CategoryId = value.CategoryId
-                    //Actors = value.Actors.Select(a => a.ActorFirstName + "" + a.ActorLastName).ToList()
+                    CategoryId = value.CategoryId                    
                 };
 
                 addShowCommand.Execute(show);
                 return StatusCode(201);
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return StatusCode(500);
             }            
         }
-
+        //kako da se odradi edit slike - nema ga nigde
         // PUT: api/Shows/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromForm] InsertShow value)
         {
-        }
+            if(value.ShowPicturePath != null)
+            {
+                var extension = Path.GetExtension(value.ShowPicturePath.FileName);
 
+                if (!AllowedExtensions.Extensions.Contains(extension))
+                {
+                    return UnprocessableEntity("Extension is not allowed!");
+                }
+
+                try
+                {
+                    var newPictureName = Guid.NewGuid().ToString() + "_" + value.ShowPicturePath.FileName;
+
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", newPictureName);
+
+                    value.ShowPicturePath.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                    var show = new ShowDTO
+                    {
+                        ShowPicturePath = newPictureName                        
+                    };
+
+                    editShowCommand.Execute(show);
+                    return NoContent();
+
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500);
+                }
+            }
+            else
+            {
+                return null;
+                //??
+            }
+        }
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                deleteShowCommand.Execute(id);
+                return NoContent();
+            }
+            catch (DataNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
         }
-    }
-    
+    }    
 }
