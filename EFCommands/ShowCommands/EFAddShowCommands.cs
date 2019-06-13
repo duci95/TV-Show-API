@@ -32,13 +32,13 @@ namespace EFCommands.ShowCommands
             };
 
 
-            //var relationships = request.ActorIds.Select(id => new ActorShow
-            //{
-            //    ActorId = id,
-            //    ShowId = show.Id
-            //});
+            var relationships = request.ActorIds.Select(id => new ActorShow
+            {
+                ActorId = id,
+                ShowId = show.Id
+            });
 
-            //show.ActorShows = relationships.ToList();
+            show.ActorShows = relationships.ToList();
 
             Context.Shows.Add(show);
             Context.SaveChanges();

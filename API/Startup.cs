@@ -29,6 +29,8 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using API.Helpers;
 using Application.DTO;
+using Application.Commands;
+using EFCommands;
 
 namespace API
 {
@@ -108,7 +110,12 @@ namespace API
             var key = Configuration.GetSection("Encryption")["key"];
 
             var enc = new Encryption(key);
-            services.AddSingleton(enc);
+            services.AddTransient<Encryption>(s =>
+            {
+                return new Encryption(key);
+            }
+            
+            );
 
 
             services.AddTransient(s => {
@@ -132,6 +139,11 @@ namespace API
                     };
                 }
             });
+
+            //auth
+
+            services.AddTransient<IAuthCommand, EFAuthCommand>();
+
 
         }
 

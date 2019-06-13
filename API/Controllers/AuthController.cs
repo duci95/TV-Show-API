@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Helpers;
+using Application.Commands;
 using Application.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +16,19 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly Encryption _enc;
+        private readonly IAuthCommand auth;
 
-        public AuthController(Encryption enc)
+        public AuthController(Encryption enc, IAuthCommand auth)
         {
             _enc = enc;
+            this.auth = auth;
         }
 
         // POST: api/Auth
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post(AuthDTO dto)
         {
-            //kako bi izgledao kod za logovanje?
-            var user = new LoggedUser
-            {
-                FirstName = "Petar",
-                LastName = "Peric",
-                Id = 10,
-                Role = "Admin",
-                Username = "pera123"
-            };
+            var user = auth.Execute(dto);
 
             var stringObjekat = JsonConvert.SerializeObject(user);
 
