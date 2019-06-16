@@ -36,13 +36,13 @@ namespace API.Controllers
 
         // GET: api/Roles
         [HttpGet]
-        public IActionResult Get([FromQuery] RoleSearch criteria)
+        public ActionResult Get([FromQuery] RoleSearch criteria)
             => Ok(getRolesCommand.Execute(criteria));
 
 
         // GET: api/Roles/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace API.Controllers
 
         // POST: api/Roles
         [HttpPost]
-        public IActionResult Post([FromBody] RoleDTO value)
+        public ActionResult Post([FromBody] RoleDTO value)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace API.Controllers
 
         // PUT: api/Roles/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] RoleDTO value)
+        public ActionResult Put(int id, [FromBody] RoleDTO value)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

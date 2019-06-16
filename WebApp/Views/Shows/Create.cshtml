@@ -1,0 +1,66 @@
+﻿@model WebApp.Models.InsertShowDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>InsertShowDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+            <div class="form-group">
+                <label asp-for="ShowTitle" class="control-label"></label>
+                <input asp-for="ShowTitle" class="form-control" />
+                <span asp-validation-for="ShowTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowText" class="control-label"></label>
+                <input asp-for="ShowText" class="form-control" />
+                <span asp-validation-for="ShowText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowYear" class="control-label"></label>
+                <input asp-for="ShowYear" class="form-control" />
+                <span asp-validation-for="ShowYear" class="text-danger"></span>
+            </div>            
+
+            <div class="form-group">
+                <label asp-for="ShowPicturePath" class="control-label"></label>
+                <input type="file" name="ShowPicturePath" />
+            </div>
+
+            <div class="form-group">
+                <select name="CategoryId" asp-for="CategoryId">
+                    @foreach(var item in ViewBag.Categories)
+                    {
+                        <option value="@item.Id">@item.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="ActorIds" multiple asp-for="ActorIds">
+                    @foreach (var item in ViewBag.Actors)
+                    {                                                
+                        <option value="@item.Id">@item.ActorFullName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

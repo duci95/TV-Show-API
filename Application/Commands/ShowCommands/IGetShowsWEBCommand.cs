@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Commands.ShowCommands
 {
-    public interface IGetShowsCommand : ICommand<ShowSearch , Pagination<ShowDTO>>
+    public interface IGetShowsWEBCommand : ICommand<ShowSearch, IEnumerable<ShowDTO>>
     {
     }
 }

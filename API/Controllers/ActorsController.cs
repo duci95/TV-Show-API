@@ -33,13 +33,13 @@ namespace API.Controllers
 
         // GET: api/Actors
         [HttpGet]
-        public IActionResult Get([FromQuery] ActorSearch criteria)
+        public ActionResult Get([FromQuery] ActorSearch criteria)
             => Ok(getActorsCommand.Execute(criteria));
 
 
         // GET: api/Actors/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace API.Controllers
 
         // POST: api/Actors
         [HttpPost]
-        public IActionResult Post([FromBody] ActorDTO value)
+        public ActionResult Post([FromBody] ActorDTO value)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace API.Controllers
         }
         // PUT: api/Actors/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] ActorDTO value)
+        public ActionResult Put(int id, [FromBody] ActorDTO value)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

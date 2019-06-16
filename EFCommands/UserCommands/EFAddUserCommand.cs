@@ -8,12 +8,18 @@ using System.Text;
 using Application.Exceptions;
 using Domain;
 using System.Security.Cryptography;
+using Application.Interfaces;
 
 namespace EFCommands.UserCommands
 {
     public class EFAddUserCommand : EFBaseCommand, IAddUserCommand
     {
-        public EFAddUserCommand(TVShowsContext context) : base(context) {  }
+        private IEmailSender emailSender;
+
+        public EFAddUserCommand(TVShowsContext context, IEmailSender emailSender) : base(context)
+        {
+            this.emailSender = emailSender;
+        }             
 
         public void Execute(UserDTO request)
         {
@@ -39,6 +45,13 @@ namespace EFCommands.UserCommands
             });            
             
             Context.SaveChanges();
+
+            var email = request.Email;
+
+            emailSender.Subject = "TV Shows API";
+            emailSender.Body = "You have successfuly registered";
+            emailSender.ToEmail = email;
+            emailSender.Send();
         }
     }
 }

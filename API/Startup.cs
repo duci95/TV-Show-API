@@ -31,6 +31,8 @@ using API.Helpers;
 using Application.DTO;
 using Application.Commands;
 using EFCommands;
+using API.Email;
+using Application.Interfaces;
 
 namespace API
 {
@@ -143,6 +145,23 @@ namespace API
             //auth
 
             services.AddTransient<IAuthCommand, EFAuthCommand>();
+
+            //email
+
+            var section = Configuration.GetSection("Email");
+
+            var sender =
+                new SmtpEmailSender(section["host"], Int32.Parse(section["port"]), section["fromaddress"], section["password"]);
+
+            services.AddSingleton<IEmailSender>(sender);
+
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new Info { Title = "TV Shows API", Version = "v1" });
+            //    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            //    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            //    c.IncludeXmlComments(xmlPath);
+            //});
 
 
         }

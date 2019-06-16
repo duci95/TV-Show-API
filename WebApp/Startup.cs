@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Commands.ActorsCommands;
 using Application.Commands.CategoriesCommands;
 using Application.Commands.ShowCommands;
+using EFCommands.ActorCommands;
 using EFCommands.CategoryCommands;
 using EFCommands.ShowCommands;
 using EFDataAccess;
@@ -43,20 +45,23 @@ namespace WebApp
 
             //shows
 
-            //services.AddTransient<IGetShowsCommand, EFGetShowsCommand>();
-            //services.AddTransient<IGetShowCommand, EFGetShowCommand>();
-            //services.AddTransient<IEditShowCommand, EFEditShowCommand>();
-            //services.AddTransient<IAddShowCommand, EFAddShowCommands>();
-            //services.AddTransient<IDeleteShowCommand, EFDeleteShowCommand>();
+            services.AddTransient<IGetShowsWEBCommand, EFGetShowsWEBCommnad>();
+            services.AddTransient<IGetShowCommand, EFGetShowCommand>();
+            services.AddTransient<IEditShowCommand, EFEditShowCommand>();
+            services.AddTransient<IAddShowCommand, EFAddShowCommands>();
+            services.AddTransient<IDeleteShowCommand, EFDeleteShowCommand>();
 
             //categories
 
-            //services.AddTransient<IGetCategoriesCommand, EFGetCategoriesCommand>();
+            services.AddTransient<IGetCategoriesCommand, EFGetCategoriesCommand>();
             services.AddTransient<IGetCategoryCommand, EFGetCategoryCommand>();
             services.AddTransient<IAddCategoryCommand, EFAddCategoryCommand>();
             services.AddTransient<IDeleteCategoryCommand, EFDeleteCategoryCommand>();
             services.AddTransient<IEditCategoryCommand, EFEditCategoryCommand>();
 
+            //actors
+
+            services.AddTransient<IGetActorsCommand, EFGetActorsCommand>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

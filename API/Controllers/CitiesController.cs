@@ -34,12 +34,12 @@ namespace API.Controllers
                 
         // GET: api/Cities
         [HttpGet]
-        public IActionResult Get([FromQuery] CitySearch criteria ) => Ok(_getCitiesCommand.Execute(criteria));
+        public ActionResult Get([FromQuery] CitySearch criteria ) => Ok(_getCitiesCommand.Execute(criteria));
         
 
         // GET: api/Cities/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace API.Controllers
 
         // POST: api/Cities
         [HttpPost]
-        public IActionResult Post([FromBody] CityDTO value)
+        public ActionResult Post([FromBody] CityDTO value)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace API.Controllers
 
         // PUT: api/Cities/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CityDTO value)
+        public ActionResult Put(int id, [FromBody] CityDTO value)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

@@ -36,12 +36,12 @@ namespace API.Controllers
 
         // GET: api/Shows
         [HttpGet]
-        public IActionResult Get([FromQuery] ShowSearch shows)
+        public ActionResult Get([FromQuery] ShowSearch shows)
             => Ok(getShowsCommand.Execute(shows));        
 
         // GET: api/Shows/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace API.Controllers
 
         // POST: api/Shows
         [HttpPost]
-        public IActionResult Post([FromForm] InsertShow value)
+        public ActionResult Post([FromForm] InsertShow value)
         {
             var extension = Path.GetExtension(value.ShowPicturePath.FileName);
 
@@ -96,7 +96,7 @@ namespace API.Controllers
         //kako da se odradi edit slike - nema ga nigde
         // PUT: api/Shows/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromForm] InsertShow value)
+        public ActionResult Put(int id, [FromForm] InsertShow value)
         {
             if(value.ShowPicturePath != null)
             {
@@ -137,7 +137,7 @@ namespace API.Controllers
         }
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

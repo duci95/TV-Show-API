@@ -40,13 +40,13 @@ namespace API.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public IActionResult Get([FromQuery] UserSearch query)                              
+        public ActionResult Get([FromQuery] UserSearch query)                              
               =>  Ok(_getUsersCommand.Execute(query));                     
         
                   
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace API.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public IActionResult Post(UserDTO request)
+        public ActionResult Post(UserDTO request)
         {
             try
             {  
@@ -83,7 +83,7 @@ namespace API.Controllers
         }
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] UserDTO request)
+        public ActionResult Put(int id, [FromBody] UserDTO request)
         {
             try
             {                
@@ -109,7 +109,7 @@ namespace API.Controllers
         }
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {                

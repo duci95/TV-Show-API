@@ -26,7 +26,7 @@ namespace API.Controllers
 
         // POST: api/Auth
         [HttpPost]
-        public IActionResult Post(AuthDTO dto)
+        public ActionResult Post(AuthDTO dto)
         {
             var user = auth.Execute(dto);
 
@@ -38,7 +38,7 @@ namespace API.Controllers
         }
 
         [HttpGet("decode")]
-        public IActionResult Decode(string value)
+        public ActionResult Decode(string value)
         {
             var decodedString = _enc.DecryptString(value);
             decodedString = decodedString.Replace("\f", "");

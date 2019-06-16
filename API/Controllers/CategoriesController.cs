@@ -32,12 +32,12 @@ namespace API.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public IActionResult Get([FromQuery] CategorySearch search)
+        public ActionResult Get([FromQuery] CategorySearch search)
             => Ok(getCategoriesCommand.Execute(search));        
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace API.Controllers
 
         // POST: api/Categories
         [HttpPost]
-        public IActionResult Post([FromBody] CategoryDTO value)
+        public ActionResult Post([FromBody] CategoryDTO value)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace API.Controllers
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CategoryDTO value)
+        public ActionResult Put(int id, [FromBody] CategoryDTO value)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {
