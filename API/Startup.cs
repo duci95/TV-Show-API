@@ -33,6 +33,12 @@ using Application.Commands;
 using EFCommands;
 using API.Email;
 using Application.Interfaces;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Reflection;
+using System.IO;
+
+
+
 
 namespace API
 {
@@ -155,13 +161,13 @@ namespace API
 
             services.AddSingleton<IEmailSender>(sender);
 
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info { Title = "TV Shows API", Version = "v1" });
-            //    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            //    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            //    c.IncludeXmlComments(xmlPath);
-            //});
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "TV Shows API", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
 
         }
@@ -181,6 +187,16 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            //app.UseStaticFiles();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TV Shows API");
+            });
         }
     }
 }

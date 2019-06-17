@@ -21,3 +21,4 @@ C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Release\netcoreapp2.2\API.RazorTa
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Release\netcoreapp2.2\API.csproj.CopyComplete
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Release\netcoreapp2.2\API.dll
 C:\Users\ASUS\source\repos\TV-Show-API\API\obj\Release\netcoreapp2.2\API.pdb
+C:\Users\ASUS\source\repos\TV-Show-API\API\bin\Release\netcoreapp2.2\API.xml
